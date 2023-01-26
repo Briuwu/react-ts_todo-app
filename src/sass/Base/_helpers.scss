@@ -1,0 +1,44 @@
+// hide the elements and make screen-reader only
+// read the content of the element
+@use "../Utils/variables" as var;
+@use "../Utils/function" as func;
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+li,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding-inline: func.fluid(16, 5vw, 48);
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+  color: inherit;
+}
