@@ -1,7 +1,12 @@
 :root {
-  --element-1: hsl(0, 0%, 98%);
-  --element-2: hsl(236, 33%, 92%);
-  --element-3: hsl(233, 11%, 84%);
-  --text-light: hsl(236, 9%, 61%);
-  --text-dark: hsl(235, 19%, 35%);
+  --text: hsl(0, 0%, 98%);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+$ff: "Josefin Sans", sans-serif;
+$fz: 18px;
+
+body {
+  font-family: $ff;
 }

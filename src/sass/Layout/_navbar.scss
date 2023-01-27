@@ -1,0 +1,14 @@
+@use "../Utils/variables" as var;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    color: var(--text);
+    letter-spacing: 5px;
+  }
+
+  &__btn {
+  }
+}

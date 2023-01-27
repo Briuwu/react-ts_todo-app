@@ -1,5 +1,13 @@
+import Filter from "./components/Filter";
+import Navbar from "./components/Navbar";
+
 function App() {
-  return <div className="App">Hello!</div>;
+  return (
+    <main className="todo container">
+      <Navbar />
+      <Filter />
+    </main>
+  );
 }
 
 export default App;

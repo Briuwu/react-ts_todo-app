@@ -1,7 +1,7 @@
 // hide the elements and make screen-reader only
 // read the content of the element
 @use "../Utils/variables" as var;
-@use "../Utils/function" as func;
+@use "../Utils/functions" as func;
 
 .visually-hidden {
   border: 0;
