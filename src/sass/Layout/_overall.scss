@@ -1,4 +1,5 @@
 @use "../Utils/variables" as var;
+@use "../Utils/functions" as func;
 
 .circle {
   aspect-ratio: 1;
@@ -7,34 +8,36 @@
   border-radius: 1em;
 }
 
-.todo {
-  background-image: var.$bg-element;
+.app {
+  position: relative;
+  background-image: var.$bg-light;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-block: 2em;
+  height: 250px;
+  padding-top: 2em;
+  font-size: func.rem(14);
+}
 
-  &__input {
-    margin-block: 2em;
-    padding: 1em;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
+.input {
+  margin-block: 2em;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 
+  background-color: var(--element);
+  border-radius: 0.25em;
+
+  input {
+    border: none;
     background-color: var(--element);
-    border-radius: 0.25em;
 
-    input {
-      border: none;
-      width: 100%;
-      background-color: var(--element);
+    &::placeholder {
+      color: var(--text-input);
+    }
 
-      &::placeholder {
-        color: var(--text-tasks);
-      }
-
-      &:focus-visible {
-        outline: none;
-      }
+    &:focus-visible {
+      outline: none;
     }
   }
 }

@@ -1,17 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 :root {
-  --text-tasks: hsl(235, 19%, 35%);
+  --text-input: hsl(235, 19%, 35%);
   --element: hsl(0, 0%, 98%);
   --circle: hsl(233, 11%, 84%);
+  --text-tasks: hsl(235, 19%, 35%);
 }
 
 body.dark {
   --element: hsl(235, 24%, 19%);
-  --text-tasks: hsl(234, 39%, 85%);
+  --text-input: hsl(234, 39%, 85%);
   --circle: hsl(233, 14%, 35%);
   --bg: hsl(235, 21%, 11%);
 }
-body.dark .todo {
+body.dark .app {
   background-image: url("../images/bg-mobile-dark.jpg");
 }
 
@@ -161,6 +162,22 @@ h6 {
   color: hsl(0deg, 0%, 98%);
   letter-spacing: 5px;
 }
+
+.tasks {
+  background-color: var(--element);
+  display: grid;
+  border-radius: 0.25em;
+}
+.tasks__each {
+  display: flex;
+  padding: 1.5em 1em;
+  gap: 0.75em;
+  border-bottom: 1px solid black;
+}
+.tasks__each p {
+  color: var(--text-tasks);
+}
+
 .circle {
   aspect-ratio: 1;
   height: 1.5em;
@@ -168,13 +185,17 @@ h6 {
   border-radius: 1em;
 }
 
-.todo {
+.app {
+  position: relative;
   background-image: url("../images/bg-mobile-light.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-block: 2em;
+  height: 250px;
+  padding-top: 2em;
+  font-size: 0.875rem;
 }
-.todo__input {
+
+.input {
   margin-block: 2em;
   padding: 1em;
   display: flex;
@@ -183,20 +204,19 @@ h6 {
   background-color: var(--element);
   border-radius: 0.25em;
 }
-.todo__input input {
+.input input {
   border: none;
-  width: 100%;
   background-color: var(--element);
 }
-.todo__input input::-moz-placeholder {
-  color: var(--text-tasks);
+.input input::-moz-placeholder {
+  color: var(--text-input);
 }
-.todo__input input:-ms-input-placeholder {
-  color: var(--text-tasks);
+.input input:-ms-input-placeholder {
+  color: var(--text-input);
 }
-.todo__input input::placeholder {
-  color: var(--text-tasks);
+.input input::placeholder {
+  color: var(--text-input);
 }
-.todo__input input:focus-visible {
+.input input:focus-visible {
   outline: none;
 }/*# sourceMappingURL=style.css.map */
