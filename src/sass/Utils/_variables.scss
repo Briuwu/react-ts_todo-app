@@ -1,5 +1,8 @@
-$bg-light: url("../images/bg-mobile-light.jpg");
-$bg-dark: url("../images/bg-mobile-dark.jpg");
+$bg-light-mobile: url("../images/bg-mobile-light.jpg");
+$bg-light-desktop: url("../images/bg-desktop-light.jpg");
+$bg-dark-mobile: url("../images/bg-mobile-dark.jpg");
+$bg-dark-desktop: url("../images/bg-desktop-dark.jpg");
+$transition: all 0.25s ease;
 
 :root {
   --element: hsl(0, 0%, 98%);
@@ -28,11 +31,12 @@ body.dark {
   --line: hsl(233, 14%, 35%);
 
   .app {
-    background-image: $bg-dark;
+    background-image: $bg-dark-mobile;
   }
 }
 
 body {
   font-family: $ff;
   background-color: var(--bg);
+  transition: $transition;
 }

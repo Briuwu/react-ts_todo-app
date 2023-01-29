@@ -26,6 +26,7 @@ body.dark .app {
 body {
   font-family: "Josefin Sans", sans-serif;
   background-color: var(--bg);
+  transition: all 0.25s ease;
 }
 
 .visually-hidden {
@@ -176,6 +177,7 @@ h6 {
   border-radius: 0.25em;
   box-shadow: var(--box-shadow);
   margin-bottom: 2em;
+  transition: all 0.25s ease;
 }
 .tasks__each {
   cursor: pointer;
@@ -183,12 +185,14 @@ h6 {
   gap: 0.75em;
   padding: 1.5em 1em;
   border-bottom: 1px solid var(--line);
+  transition: all 0.25s ease;
 }
 .tasks__each .remove {
   margin-left: auto;
 }
 .tasks__each p {
   color: var(--text-tasks);
+  transition: all 0.25s ease;
 }
 .tasks__each p.complete {
   color: var(--text-complete);
@@ -203,6 +207,7 @@ h6 {
   border: 1px solid var(--circle);
   border-radius: 1em;
   background: transparent;
+  transition: all 0.25s ease;
 }
 .circle:is(:hover, .complete) {
   border: none;
@@ -217,8 +222,17 @@ h6 {
   height: 220px;
   padding-top: 2em;
   font-size: 0.875rem;
+  transition: all 0.25s ease;
 }
 
+@media (min-width: 50rem) {
+  body.dark > .app {
+    background-image: url("../images/bg-desktop-dark.jpg");
+  }
+  .app {
+    background-image: url("../images/bg-desktop-light.jpg");
+  }
+}
 .input {
   margin-block: 2em;
   padding: 1em;
@@ -227,12 +241,14 @@ h6 {
   gap: 0.5em;
   background-color: var(--element);
   border-radius: 0.25em;
+  transition: all 0.25s ease;
 }
 .input input {
   color: var(--text-input);
   border: none;
   width: 100%;
   background-color: var(--element);
+  transition: all 0.25s ease;
 }
 .input input::-moz-placeholder {
   color: var(--text-input);

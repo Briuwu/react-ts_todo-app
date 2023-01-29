@@ -9,6 +9,7 @@
   border: 1px solid var(--circle);
   border-radius: 1em;
   background: transparent;
+  transition: var.$transition;
 
   &:is(:hover, .complete) {
     border: none;
@@ -18,12 +19,25 @@
 
 .app {
   position: relative;
-  background-image: var.$bg-light;
+  background-image: var.$bg-light-mobile;
   background-repeat: no-repeat;
   background-size: cover;
   height: 220px;
   padding-top: 2em;
   font-size: func.rem(14);
+  transition: var.$transition;
+}
+
+$md: func.rem(800);
+
+@media (min-width: $md) {
+  body.dark > .app {
+    background-image: var.$bg-dark-desktop;
+  }
+
+  .app {
+    background-image: var.$bg-light-desktop;
+  }
 }
 
 .input {
@@ -35,12 +49,14 @@
 
   background-color: var(--element);
   border-radius: 0.25em;
+  transition: var.$transition;
 
   input {
     color: var(--text-input);
     border: none;
     width: 100%;
     background-color: var(--element);
+    transition: var.$transition;
 
     &::placeholder {
       color: var(--text-input);
