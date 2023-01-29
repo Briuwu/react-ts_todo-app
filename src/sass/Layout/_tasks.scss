@@ -2,15 +2,23 @@
   background-color: var(--element);
   display: grid;
   border-radius: 0.25em;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2em;
 
   &__each {
+    cursor: pointer;
     display: flex;
-    padding: 1.5em 1em;
     gap: 0.75em;
-    border-bottom: 1px solid black;
+    padding: 1.5em 1em;
+    border-bottom: 1px solid var(--line);
 
     p {
       color: var(--text-tasks);
+
+      &.complete {
+        color: var(--text-complete);
+        text-decoration: line-through;
+      }
     }
   }
 }

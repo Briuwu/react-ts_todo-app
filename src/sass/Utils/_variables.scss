@@ -2,10 +2,15 @@ $bg-light: url("../images/bg-mobile-light.jpg");
 $bg-dark: url("../images/bg-mobile-dark.jpg");
 
 :root {
-  --text-input: hsl(235, 19%, 35%);
   --element: hsl(0, 0%, 98%);
+  --text-input: hsl(235, 19%, 35%);
+  --text-complete: hsl(236, 9%, 61%);
   --circle: hsl(233, 11%, 84%);
   --text-tasks: hsl(235, 19%, 35%);
+  --bg: hsl(0, 0%, 98%);
+  --line: hsl(233, 11%, 84%);
+
+  --box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
@@ -16,8 +21,11 @@ $fz: 18px;
 body.dark {
   --element: hsl(235, 24%, 19%);
   --text-input: hsl(234, 39%, 85%);
+  --text-complete: hsl(233, 14%, 35%);
   --circle: hsl(233, 14%, 35%);
+  --text-tasks: hsl(234, 39%, 85%);
   --bg: hsl(235, 21%, 11%);
+  --line: hsl(233, 14%, 35%);
 
   .app {
     background-image: $bg-dark;

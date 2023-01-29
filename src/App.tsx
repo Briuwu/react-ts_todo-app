@@ -16,13 +16,36 @@ function App() {
     { id: 2, completed: false, task: "Jog Around the park 3x" },
     { id: 3, completed: false, task: "10 minutes meditation" },
     { id: 4, completed: false, task: "Read for 1 hour" },
+    { id: 5, completed: false, task: "Pick up groceries" },
+    { id: 6, completed: false, task: "Complete Todo App on Frontend Mentor" },
   ]);
 
+  function completeTask(id: number) {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, completed: !todo.completed };
+      } else {
+        return todo;
+      }
+    });
+
+    setTodos(newTodos);
+  }
+
+  function addTask(task: string) {
+    setTodos((prev) => [
+      ...prev,
+      { id: todos.length + 1, completed: false, task: task },
+    ]);
+  }
+
   return (
-    <main className="app container">
-      <Navbar />
-      <InputTask />
-      <Tasks todos={todos} />
+    <main className="app">
+      <div className="container">
+        <Navbar />
+        <InputTask addTask={addTask} />
+        <Tasks todos={todos} completeTask={completeTask} />
+      </div>
     </main>
   );
 }
