@@ -5,7 +5,7 @@ interface InputTaskProps {
 }
 
 const InputTask = ({ addTask }: InputTaskProps) => {
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();

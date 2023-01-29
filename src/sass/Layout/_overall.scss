@@ -8,6 +8,7 @@
   height: 1.5em;
   border: 1px solid var(--circle);
   border-radius: 1em;
+  background: transparent;
 
   &:is(:hover, .complete) {
     border: none;

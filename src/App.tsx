@@ -39,12 +39,24 @@ function App() {
     ]);
   }
 
+  function removeTask(id: number) {
+    const taskToRemove = todos.filter((todo) => {
+      return id !== todo.id;
+    });
+
+    setTodos(taskToRemove);
+  }
+
   return (
     <main className="app">
       <div className="container">
         <Navbar />
         <InputTask addTask={addTask} />
-        <Tasks todos={todos} completeTask={completeTask} />
+        <Tasks
+          todos={todos}
+          completeTask={completeTask}
+          removeTask={removeTask}
+        />
       </div>
     </main>
   );

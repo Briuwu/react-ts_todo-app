@@ -184,6 +184,9 @@ h6 {
   padding: 1.5em 1em;
   border-bottom: 1px solid var(--line);
 }
+.tasks__each .remove {
+  margin-left: auto;
+}
 .tasks__each p {
   color: var(--text-tasks);
 }
@@ -199,6 +202,7 @@ h6 {
   height: 1.5em;
   border: 1px solid var(--circle);
   border-radius: 1em;
+  background: transparent;
 }
 .circle:is(:hover, .complete) {
   border: none;

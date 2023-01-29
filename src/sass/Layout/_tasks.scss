@@ -12,6 +12,10 @@
     padding: 1.5em 1em;
     border-bottom: 1px solid var(--line);
 
+    .remove {
+      margin-left: auto;
+    }
+
     p {
       color: var(--text-tasks);
 
