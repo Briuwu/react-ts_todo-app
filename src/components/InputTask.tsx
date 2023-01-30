@@ -11,6 +11,7 @@ const InputTask = ({ addTask }: InputTaskProps) => {
     e.preventDefault();
 
     if (typeof inputRef.current?.value === "string") {
+      if (inputRef.current.value.trim() === "") return;
       addTask(inputRef.current.value);
       inputRef.current.value = "";
     }
