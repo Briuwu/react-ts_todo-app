@@ -19,12 +19,12 @@ type TodoContextProviderType = {
   children?: ReactElement | undefined;
 };
 
-interface TodoContextType {
+type TodoContextType = {
   todos: TodoTasks[];
   completeTask: (id: number) => void;
   addTask: (task: string) => void;
   removeTask: (id: number) => void;
-}
+};
 
 export const TodoContext = createContext<TodoContextType>({
   todos: initialState,
