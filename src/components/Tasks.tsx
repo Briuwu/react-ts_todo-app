@@ -1,21 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodoContext } from "../TodoContext";
 import checkIcon from "../images/icon-check.svg";
 import crossIcon from "../images/icon-cross.svg";
 
-interface TodoTasks {
-  id: number;
-  completed: boolean;
-  task: string;
-}
+const Tasks = () => {
+  const { todos, completeTask, removeTask } = useContext(TodoContext);
 
-interface TasksProps {
-  todos: TodoTasks[];
-  completeTask: (id: number) => void;
-  removeTask: (id: number) => void;
-}
-[];
-
-const Tasks = ({ todos, completeTask, removeTask }: TasksProps) => {
   return (
     <div className="tasks">
       {todos.map((item) => (

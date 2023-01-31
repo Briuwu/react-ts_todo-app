@@ -1,10 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
+import { TodoContext } from "../TodoContext";
 
-interface InputTaskProps {
-  addTask: (task: string) => void;
-}
-
-const InputTask = ({ addTask }: InputTaskProps) => {
+const InputTask = () => {
+  const { addTask } = useContext(TodoContext);
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: React.SyntheticEvent) {
