@@ -6,15 +6,16 @@
   border-radius: 0.25em;
   box-shadow: var(--box-shadow);
   margin-bottom: 2em;
-  transition: var.$transition;
+  transition: var.$bgc-transition;
 
   &__each {
+    background-color: var(--element);
     cursor: pointer;
     display: flex;
     gap: 0.75em;
     padding: 1.5em 1em;
     border-bottom: 1px solid var(--line);
-    transition: var.$transition;
+    transition: var.$bgc-transition;
 
     .remove {
       margin-left: auto;
@@ -22,7 +23,7 @@
 
     p {
       color: var(--text-tasks);
-      transition: var.$transition;
+      transition: var.$c-transition;
 
       &.complete {
         color: var(--text-complete);

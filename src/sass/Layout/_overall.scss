@@ -9,7 +9,6 @@
   border: 1px solid var(--circle);
   border-radius: 1em;
   background: transparent;
-  transition: var.$transition;
 
   &:is(:hover, .complete) {
     border: none;
@@ -25,7 +24,6 @@
   height: 220px;
   padding-top: 2em;
   font-size: func.rem(14);
-  transition: var.$transition;
 }
 
 $md: func.rem(800);
@@ -49,14 +47,14 @@ $md: func.rem(800);
 
   background-color: var(--element);
   border-radius: 0.25em;
-  transition: var.$transition;
+  transition: var.$bgc-transition;
 
   input {
     color: var(--text-input);
     border: none;
     width: 100%;
     background-color: var(--element);
-    transition: var.$transition;
+    transition: var.$bgc-transition;
 
     &::placeholder {
       color: var(--text-input);

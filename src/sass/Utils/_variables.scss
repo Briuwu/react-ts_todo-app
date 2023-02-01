@@ -2,7 +2,8 @@ $bg-light-mobile: url("../images/bg-mobile-light.jpg");
 $bg-light-desktop: url("../images/bg-desktop-light.jpg");
 $bg-dark-mobile: url("../images/bg-mobile-dark.jpg");
 $bg-dark-desktop: url("../images/bg-desktop-dark.jpg");
-$transition: all 0.25s ease;
+$bgc-transition: background-color 0.25s ease;
+$c-transition: color 0.25s ease;
 
 :root {
   --element: hsl(0, 0%, 98%);
@@ -18,8 +19,8 @@ $transition: all 0.25s ease;
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
-$ff: "Josefin Sans", sans-serif;
 $fz: 18px;
+$ff: "Josefin Sans", sans-serif;
 
 body.dark {
   --element: hsl(235, 24%, 19%);
@@ -38,5 +39,5 @@ body.dark {
 body {
   font-family: $ff;
   background-color: var(--bg);
-  transition: $transition;
+  transition: $bgc-transition;
 }

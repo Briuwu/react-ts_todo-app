@@ -24,6 +24,7 @@ type TodoContextType = {
   completeTask: (id: number) => void;
   addTask: (task: string) => void;
   removeTask: (id: number) => void;
+  setTodos: React.Dispatch<React.SetStateAction<TodoTasks[]>>;
 };
 
 export const TodoContext = createContext<TodoContextType>({
@@ -31,6 +32,7 @@ export const TodoContext = createContext<TodoContextType>({
   completeTask: () => {},
   addTask: () => {},
   removeTask: () => {},
+  setTodos: () => {},
 });
 
 export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
@@ -64,7 +66,9 @@ export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
   }
 
   return (
-    <TodoContext.Provider value={{ todos, completeTask, addTask, removeTask }}>
+    <TodoContext.Provider
+      value={{ todos, completeTask, addTask, removeTask, setTodos }}
+    >
       {children}
     </TodoContext.Provider>
   );

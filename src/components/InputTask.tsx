@@ -16,7 +16,7 @@ const InputTask = () => {
   }
   return (
     <form className="input" onSubmit={handleSubmit}>
-      <span className="circle"></span>
+      <button type="submit" className="circle"></button>
       <input ref={inputRef} type="text" placeholder="Create a new todo..." />
     </form>
   );
