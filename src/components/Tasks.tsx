@@ -11,6 +11,7 @@ const Tasks = () => {
 
   const handleOnDragEnd = (result: DragUpdate) => {
     if (!result?.destination) return;
+
     const tasks = [...todos];
     const [reorderItem] = tasks.splice(result.source.index, 1);
     tasks.splice(result.destination.index, 0, reorderItem);
@@ -41,7 +42,9 @@ const Tasks = () => {
                   >
                     <button
                       onClick={() => completeTask(item.id)}
-                      className={`circle ${item.completed ? "complete" : ""}`}
+                      className={`circle ${
+                        item.completed ? "complete" : ""
+                      } btn`}
                     >
                       {item.completed && <img src={checkIcon} alt="" />}
                     </button>
