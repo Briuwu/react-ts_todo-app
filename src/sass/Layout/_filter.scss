@@ -1,0 +1,47 @@
+@use "../Utils/variables" as var;
+
+.filter {
+  position: relative;
+  box-shadow: var(--box-shadow);
+  background-color: var(--element);
+  color: var(--text-complete);
+  transition: var.$bgc-transition, var.$c-transition;
+  padding: 1em;
+
+  display: flex;
+  justify-content: space-between;
+
+  &__btns {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5em;
+    background-color: var(--element);
+    box-shadow: var(--box-shadow);
+    transition: var.$bgc-transition;
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+    > button {
+      font-weight: 700;
+
+      &.active {
+        color: hsl(220, 98%, 61%);
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .filter__btns {
+    position: static;
+    background-color: none;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+  }
+}

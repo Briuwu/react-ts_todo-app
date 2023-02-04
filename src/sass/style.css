@@ -176,7 +176,6 @@ h6 {
   display: grid;
   border-radius: 0.25em;
   box-shadow: var(--box-shadow);
-  margin-bottom: 2em;
   transition: background-color 0.25s ease;
 }
 .tasks__each {
@@ -200,6 +199,47 @@ h6 {
   text-decoration: line-through;
 }
 
+.filter {
+  position: relative;
+  box-shadow: var(--box-shadow);
+  background-color: var(--element);
+  color: var(--text-complete);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+.filter__btns {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5em;
+  background-color: var(--element);
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.25s ease;
+  padding: 1em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+.filter__btns > button {
+  font-weight: 700;
+}
+.filter__btns > button.active {
+  color: hsl(220deg, 98%, 61%);
+}
+
+@media (min-width: 600px) {
+  .filter__btns {
+    position: static;
+    background-color: none;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+  }
+}
 .circle {
   display: grid;
   place-items: center;

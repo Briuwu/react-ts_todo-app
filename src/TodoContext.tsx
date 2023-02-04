@@ -1,4 +1,4 @@
-import React, { createContext, ReactElement, useState } from "react";
+import React, { createContext, ReactElement, useEffect, useState } from "react";
 
 interface TodoTasks {
   id: number;
@@ -25,6 +25,11 @@ type TodoContextType = {
   addTask: (task: string) => void;
   removeTask: (id: number) => void;
   setTodos: React.Dispatch<React.SetStateAction<TodoTasks[]>>;
+  filterChoices: string[];
+  handleFilter: (opt: string) => void;
+  filter: string;
+  filteredTodos: TodoTasks[];
+  setFilteredTodos: React.Dispatch<React.SetStateAction<TodoTasks[]>>;
 };
 
 export const TodoContext = createContext<TodoContextType>({
@@ -33,10 +38,17 @@ export const TodoContext = createContext<TodoContextType>({
   addTask: () => {},
   removeTask: () => {},
   setTodos: () => {},
+  filterChoices: [],
+  handleFilter: () => {},
+  filter: "",
+  filteredTodos: initialState,
+  setFilteredTodos: () => {},
 });
 
 export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
   const [todos, setTodos] = useState<TodoTasks[]>(initialState);
+  const [filter, setFilter] = useState("All");
+  const [filteredTodos, setFilteredTodos] = useState<TodoTasks[]>([]);
 
   function completeTask(id: number) {
     const newTodos = todos.map((todo) => {
@@ -65,9 +77,46 @@ export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
     setTodos(taskToRemove);
   }
 
+  const filterChoices = ["All", "Active", "Completed"];
+
+  const handleFilter = (opt: string) => {
+    setFilter(opt);
+  };
+
+  const handleFilterChanged = () => {
+    switch (filter) {
+      case "Active":
+        setFilteredTodos((prev) =>
+          prev.filter((todo) => todo.completed === false)
+        );
+        break;
+      case "Completed":
+        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        break;
+      default:
+        setFilteredTodos(todos);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    handleFilterChanged();
+  }, [filter, todos]);
+
   return (
     <TodoContext.Provider
-      value={{ todos, completeTask, addTask, removeTask, setTodos }}
+      value={{
+        todos,
+        completeTask,
+        addTask,
+        removeTask,
+        setTodos,
+        filterChoices,
+        handleFilter,
+        filter,
+        filteredTodos,
+        setFilteredTodos,
+      }}
     >
       {children}
     </TodoContext.Provider>

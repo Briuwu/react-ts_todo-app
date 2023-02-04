@@ -11,6 +11,7 @@ function App() {
         <Navbar />
         <InputTask />
         <Tasks />
+        <Filter />
       </div>
     </main>
   );
