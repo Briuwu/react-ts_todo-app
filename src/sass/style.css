@@ -200,7 +200,6 @@ h6 {
 }
 
 .filter {
-  position: relative;
   box-shadow: var(--box-shadow);
   background-color: var(--element);
   color: var(--text-complete);
@@ -208,6 +207,9 @@ h6 {
   padding: 1em;
   display: flex;
   justify-content: space-between;
+}
+.filter__container {
+  position: relative;
 }
 .filter__btns {
   position: absolute;
@@ -223,6 +225,10 @@ h6 {
   align-items: center;
   justify-content: center;
   gap: 1em;
+}
+.filter__btns .tooltip {
+  position: absolute;
+  bottom: -3em;
 }
 .filter__btns > button {
   font-weight: 700;

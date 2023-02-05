@@ -48,7 +48,7 @@ export const TodoContext = createContext<TodoContextType>({
 export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
   const [todos, setTodos] = useState<TodoTasks[]>(initialState);
   const [filter, setFilter] = useState("All");
-  const [filteredTodos, setFilteredTodos] = useState<TodoTasks[]>(initialState);
+  const [filteredTodos, setFilteredTodos] = useState<TodoTasks[]>([]);
 
   function completeTask(id: number) {
     const newTodos = todos.map((todo) => {

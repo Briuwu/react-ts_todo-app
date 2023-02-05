@@ -1,7 +1,6 @@
 @use "../Utils/variables" as var;
 
 .filter {
-  position: relative;
   box-shadow: var(--box-shadow);
   background-color: var(--element);
   color: var(--text-complete);
@@ -10,6 +9,10 @@
 
   display: flex;
   justify-content: space-between;
+
+  &__container {
+    position: relative;
+  }
 
   &__btns {
     position: absolute;
@@ -25,6 +28,11 @@
     align-items: center;
     justify-content: center;
     gap: 1em;
+
+    .tooltip {
+      position: absolute;
+      bottom: -3em;
+    }
 
     > button {
       font-weight: 700;
