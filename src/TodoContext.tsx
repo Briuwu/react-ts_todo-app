@@ -48,7 +48,7 @@ export const TodoContext = createContext<TodoContextType>({
 export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
   const [todos, setTodos] = useState<TodoTasks[]>(initialState);
   const [filter, setFilter] = useState("All");
-  const [filteredTodos, setFilteredTodos] = useState<TodoTasks[]>([]);
+  const [filteredTodos, setFilteredTodos] = useState<TodoTasks[]>(initialState);
 
   function completeTask(id: number) {
     const newTodos = todos.map((todo) => {
@@ -86,9 +86,7 @@ export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
   const handleFilterChanged = () => {
     switch (filter) {
       case "Active":
-        setFilteredTodos((prev) =>
-          prev.filter((todo) => todo.completed === false)
-        );
+        setFilteredTodos(todos.filter((todo) => todo.completed === false));
         break;
       case "Completed":
         setFilteredTodos(todos.filter((todo) => todo.completed === true));
