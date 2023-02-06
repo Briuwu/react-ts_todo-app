@@ -7,10 +7,11 @@ import { DragDropContext, Draggable, DragUpdate } from "react-beautiful-dnd";
 import { StrictModeDroppable as Droppable } from "../StrictModeDroppable";
 
 const Tasks = () => {
-  const { todos, filteredTodos, completeTask, removeTask, setTodos } =
+  const { todos, completeTask, removeTask, setTodos, handleFilterChanged } =
     useContext(TodoContext);
 
   const handleOnDragEnd = (result: DragUpdate) => {
+    console.log(result);
     if (!result?.destination) return;
 
     const tasks = [...todos];
@@ -31,7 +32,7 @@ const Tasks = () => {
             ref={provided.innerRef}
             className="tasks"
           >
-            {filteredTodos.map((item, index) => (
+            {handleFilterChanged.map((item, index) => (
               <Draggable
                 key={item.id}
                 draggableId={item.id.toString()}

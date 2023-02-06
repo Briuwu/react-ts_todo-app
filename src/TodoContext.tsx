@@ -1,4 +1,10 @@
-import React, { createContext, ReactElement, useEffect, useState } from "react";
+import React, {
+  createContext,
+  ReactElement,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 interface TodoTasks {
   id: number;
@@ -28,8 +34,7 @@ type TodoContextType = {
   filterChoices: string[];
   handleFilter: (opt: string) => void;
   filter: string;
-  filteredTodos: TodoTasks[];
-  setFilteredTodos: React.Dispatch<React.SetStateAction<TodoTasks[]>>;
+  handleFilterChanged: TodoTasks[];
 };
 
 export const TodoContext = createContext<TodoContextType>({
@@ -41,17 +46,15 @@ export const TodoContext = createContext<TodoContextType>({
   filterChoices: [],
   handleFilter: () => {},
   filter: "",
-  filteredTodos: initialState,
-  setFilteredTodos: () => {},
+  handleFilterChanged: [],
 });
 
 export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
   const [todos, setTodos] = useState<TodoTasks[]>(initialState);
   const [filter, setFilter] = useState("All");
-  const [filteredTodos, setFilteredTodos] = useState<TodoTasks[]>([]);
 
   function completeTask(id: number) {
-    const newTodos = todos.map((todo) => {
+    const completedTodo = todos.map((todo) => {
       if (todo.id === id) {
         return { ...todo, completed: !todo.completed };
       } else {
@@ -59,7 +62,7 @@ export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
       }
     });
 
-    setTodos(newTodos);
+    setTodos(completedTodo);
   }
 
   function addTask(task: string) {
@@ -83,22 +86,22 @@ export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
     setFilter(opt);
   }
 
-  function handleFilterChanged() {
+  const handleFilterChanged = useMemo(() => {
+    let filteredArray;
+
     switch (filter) {
       case "Active":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        filteredArray = todos.filter((todo) => todo.completed === false);
         break;
       case "Completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        filteredArray = todos.filter((todo) => todo.completed === true);
         break;
       default:
-        setFilteredTodos(todos);
+        filteredArray = [...todos];
         break;
     }
-  }
 
-  useEffect(() => {
-    handleFilterChanged();
+    return filteredArray;
   }, [filter, todos]);
 
   return (
@@ -112,8 +115,7 @@ export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
         filterChoices,
         handleFilter,
         filter,
-        filteredTodos,
-        setFilteredTodos,
+        handleFilterChanged,
       }}
     >
       {children}

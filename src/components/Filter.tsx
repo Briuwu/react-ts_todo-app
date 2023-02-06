@@ -2,19 +2,20 @@ import React, { useState, useContext } from "react";
 import { TodoContext } from "../TodoContext";
 
 const Filter = () => {
-  const { filter, filterChoices, handleFilter, filteredTodos, setTodos } =
+  const { filter, filterChoices, handleFilter, setTodos, handleFilterChanged } =
     useContext(TodoContext);
 
   const handleDeleteAll = () => {
     setTodos((prev) => prev.filter((todo) => todo.completed !== true));
   };
 
+  let todosLength = handleFilterChanged.length;
+
   return (
     <div className="filter__container">
       <div className="filter">
         <span className="filter__left">
-          {filteredTodos.length} {filteredTodos.length <= 1 ? "item" : "items"}{" "}
-          left
+          {todosLength} {todosLength <= 1 ? "item" : "items"} left
         </span>
         <div className="filter__btns">
           {filterChoices.map((each, index) => (
