@@ -7,21 +7,18 @@ import { DragDropContext, Draggable, DragUpdate } from "react-beautiful-dnd";
 import { StrictModeDroppable as Droppable } from "../StrictModeDroppable";
 
 const Tasks = () => {
-  const {
-    todos,
-    filteredTodos,
-    completeTask,
-    removeTask,
-    setFilteredTodos,
-    setTodos,
-  } = useContext(TodoContext);
+  const { todos, filteredTodos, completeTask, removeTask, setTodos } =
+    useContext(TodoContext);
 
   const handleOnDragEnd = (result: DragUpdate) => {
     if (!result?.destination) return;
 
     const tasks = [...todos];
+
     const [reorderItem] = tasks.splice(result.source.index, 1);
+
     tasks.splice(result.destination.index, 0, reorderItem);
+
     setTodos(tasks);
   };
 

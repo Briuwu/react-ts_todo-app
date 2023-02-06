@@ -79,11 +79,11 @@ export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
 
   const filterChoices = ["All", "Active", "Completed"];
 
-  const handleFilter = (opt: string) => {
+  function handleFilter(opt: string) {
     setFilter(opt);
-  };
+  }
 
-  const handleFilterChanged = () => {
+  function handleFilterChanged() {
     switch (filter) {
       case "Active":
         setFilteredTodos(todos.filter((todo) => todo.completed === false));
@@ -95,7 +95,7 @@ export const TodoContextProvider = ({ children }: TodoContextProviderType) => {
         setFilteredTodos(todos);
         break;
     }
-  };
+  }
 
   useEffect(() => {
     handleFilterChanged();
