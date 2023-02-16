@@ -3,7 +3,7 @@ import MoonIcon from "../images/icon-moon.svg";
 import SunIcon from "../images/icon-sun.svg";
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState<boolean>(false);
+  const [toggle, setToggle] = useState<boolean>(true);
 
   function handleToggle() {
     let theme = !toggle;
