@@ -9,7 +9,7 @@ const Navbar = () => {
     let theme = !toggle;
     setToggle((prev) => !prev);
 
-    if (theme) {
+    if (toggle) {
       document.body.classList.add("dark");
     } else {
       document.body.classList.remove("dark");
